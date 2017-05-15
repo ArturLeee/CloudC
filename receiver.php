@@ -1,13 +1,16 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 use PhpAmqpLib\Connection\AMQPStreamConnection;
+
+include_once 'Users.php';
 $connection = new AMQPStreamConnection('10.3.51.32', 5672, 'cloud', 'Student1');
 $channel = $connection->channel();
 $channel->queue_declare('cloud', false, false, false, false);
 echo ' [*] Waiting for messages. To exit press CTRL+C', "\n";
+
 $callback = function($msg) {
   echo " [x] Received ", $msg->body, "\n";
-   echo var_dump($msg);
+   var_dump($msg->body);
   /*
 $json = array(
     'Type' => 'Request',
@@ -29,14 +32,17 @@ $json = array(
         'groupadmin' => 'no',
         'quota' => '5',
 );*/
-    $json = $msg;
 
-    $json = json_decode($input->body,true);
+
+    $json = json_decode($msg->body,true);
     
     $credentials = $json['Credentials'];
     $login = $credentials['login'];
     $password = $credentials['password'];
-    
+    $method = $json['Method'];
+    $sender = $json['Sender'];
+    $receiver = $json['Receiver'];
+    $objectType = $json['ObjectType'];
     $body = $json['Body'];
     foreach($body as $name => $value) {
         switch($name){
@@ -47,7 +53,7 @@ $json = array(
                 case 'fullname':
                     $fullname = $value;
                 case 'password':
-                    $password2 = $value;
+                    $passwordUser = $value;
                 case 'email':
                     $email = $value;
                 case 'group':
@@ -71,8 +77,8 @@ $json = array(
         if (!isset($email)) {
             $email = null;
         }
-        if (!isset($password2)) {
-            $password2 = null;
+        if (!isset($passwordUser)) {
+            $passwordUser = null;
         }
         if (!isset($group)) {
             $group = null;
@@ -86,10 +92,10 @@ $json = array(
     
     switch ($method) {
         case 'PUT':
-            switch ($ObjectType) {
+            switch ($objectType) {
                 case 'user':
+                    Users::createUsers($login, $password, $id, $username, $fullname, $email, $passwordUser, $group, $groupadmin, $quota);
                       echo " [x] Received ";
-                      header("location:createUser.php");
                     break;
                 case 'gastspreker':
                     break;
@@ -100,9 +106,9 @@ $json = array(
             }
             break;
         case 'GET':
-            switch ($ObjectType) {
+            switch ($objectType) {
                 case 'user':
-                    getUser($login, $password, $id, $username, $fullname, $email, $password2, $group, $groupadmin, $quota);
+                    //getUser($login, $password, $id, $username, $fullname, $email, $password2, $group, $groupadmin, $quota);
                     break;
                 case 'gastspreker':
                     break;
@@ -113,9 +119,9 @@ $json = array(
             }
             break;
         case 'POST':
-            switch ($ObjectType) {
+            switch ($objectType) {
                 case 'user':
-                    addUser($login, $password, $id, $username, $fullname, $email, $password2, $group, $groupadmin, $quota);
+                    Users::createUsers($login, $password, $id, $username, $fullname, $email, $passwordUser, $group, $groupadmin, $quota);
                     break;
                 case 'gastspreker':
                     break;
@@ -130,7 +136,7 @@ $json = array(
     }
   
 };
-$channel->basic_consume('hello', '', false, true, false, false, $callback);
+$channel->basic_consume('cloud', '', false, true, false, false, $callback);
 while(count($channel->callbacks)) {
     $channel->wait();
 }
