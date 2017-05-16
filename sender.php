@@ -16,8 +16,8 @@ $json = array(
     ),
     'Body' => array (
         'id' => '6d9fa04f-2148-c1c4-fb78-590f3af9e935',
-        'username' => 'Jan',
-        'fullname' => 'Jantje',
+        'username' => 'Janus',
+        'fullname' => 'Aiai',
         'password' => '123',
         'email' => 'gast@gmail.test',
         'group' => 'gastspreker',
