@@ -46,7 +46,7 @@ $json = array(
     $body = $json['Body'];
     foreach($body as $name => $value) {
         switch($name){
-            case 'id':
+                case 'id':
                     $id = $value;
                 case 'username':
                     $username = $value;
@@ -64,7 +64,9 @@ $json = array(
                     $quota = $value;
         }
     }
-    
+    echo "!!!!!!!!!!!!!!!!!!!!";
+    echo $id;
+    echo $group;
         if (!isset($id)) {
             //ERROR ANSWER
         }
