@@ -12,12 +12,12 @@ $json = array(
     'ObjectType' => 'user',
     'Credentials' => array (    
     'login' => 'admin',
-    'password' => 'lalolu4'
+    'password' => 'Student1'
     ),
     'Body' => array (
         'id' => '6d9fa04f-2148-c1c4-fb78-590f3af9e935',
-        'username' => 'Jefke',
-        'fullname' => 'tata',
+        'username' => 'gast',
+        'fullname' => 'gastje',
         'password' => '123',
         'email' => 'gast@gmail.test',
         'group' => 'gastspreker',
