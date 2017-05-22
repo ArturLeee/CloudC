@@ -72,7 +72,7 @@ $callback = function($msg) {
             switch ($method) {
                 case 'PUT':
                     switch ($objectType) {
-                        case 'VST':
+                        case 'SPK':
                             $group = "gastspreker";
                             Users::createUsers($login, $password, $id, $username, $email, $group);
                             echo " [x] Received ";
@@ -108,7 +108,7 @@ $callback = function($msg) {
                     break;
                 case 'POST':
                     switch ($objectType) {
-                        case 'VST':
+                        case 'SPK':
                             $group = "gastspreker";
                             Users::createUsers($login, $password, $id, $username, $email, $group);
                             echo " [x] Received ";

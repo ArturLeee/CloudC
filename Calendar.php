@@ -3,7 +3,7 @@
 require_once __DIR__ . '/vendor/autoload.php';
 require_once 'simpleCalDAV/SimpleCalDAVClient.php';
 
-/**
+/*
  * Created by PhpStorm.
  * User: geldh
  * Date: 16/05/2017
@@ -12,9 +12,8 @@ require_once 'simpleCalDAV/SimpleCalDAVClient.php';
 
 class Calendar
 {
-
 //function to create agendaItem
-    function createAgendaItem($Description,$Summary,$START,$END,$Loc)
+    function createEvent($Description,$Summary,$START,$END,$Loc, $group)
     {
         $firstNewEvent = 'BEGIN:VCALENDAR
 PRODID:-//SomeExampleStuff//EN
@@ -57,12 +56,12 @@ END:VCALENDAR';
              * setCalendar()
              */
             $client = new SimpleCalDAVClient();
-            $client->connect(' http://10.3.51.24/owncloud/remote.php/dav/calendars/admin/personal/', 'admin', 'integrationcloud');
+            $client->connect('http://10.3.51.24/owncloud/remote.php/dav/calendars/admin/personal/', 'admin', 'Student1');
 
             $arrayOfCalendars = $client->findCalendars(); // Returns an array of all accessible calendars on the server.
             //var_dump($arrayOfCalendars);
             $client->setCalendar($arrayOfCalendars["personal"]); // Here: Use the calendar ID of your choice. If you don't know which calendar ID to use, try config/listCalendars.php
-            http://10.3.51.24/owncloud/remote.php/dav/
+          //  http://10.3.51.24/owncloud/remote.php/dav/
 
             /*
              * You can create calendar objects (e.g. events, todos,...) on the server with create().
@@ -76,6 +75,37 @@ END:VCALENDAR';
         } catch (Exception $e) {
             echo $e->__toString();
         }
+if($group == "SPK"){
+    try {
+        $client = new SimpleCalDAVClient();
+        $client->connect('http://10.3.51.24/owncloud/remote.php/dav/calendars/admin/personal/', 'adminSPK', 'Student1');
+
+        $arrayOfCalendars = $client->findCalendars(); // Returns an array of all accessible calendars on the server.
+        $client->setCalendar($arrayOfCalendars["personal"]); // Here: Use the calendar ID of your choice. If you don't know which calendar ID to use, try config/listCalendars.php
+
+        $firstNewEventOnServer = $client->create($firstNewEvent); // Creates $firstNewEvent on the server and a CalDAVObject representing the event.
+        $client->setCalendar($arrayOfCalendars["personal"]);
+    } catch (Exception $e) {
+        echo $e->__toString();
+    }
+
+}
+
+if($group == "COL"){
+    try {
+        $client = new SimpleCalDAVClient();
+        $client->connect('http://10.3.51.24/owncloud/remote.php/dav/calendars/admin/personal/', 'adminCOL', 'Student1');
+
+        $arrayOfCalendars = $client->findCalendars(); // Returns an array of all accessible calendars on the server.
+        $client->setCalendar($arrayOfCalendars["personal"]); // Here: Use the calendar ID of your choice. If you don't know which calendar ID to use, try config/listCalendars.php
+
+        $firstNewEventOnServer = $client->create($firstNewEvent); // Creates $firstNewEvent on the server and a CalDAVObject representing the event.
+        $client->setCalendar($arrayOfCalendars["personal"]);
+    } catch (Exception $e) {
+        echo $e->__toString();
+    }
+}
+
     }
 }
 

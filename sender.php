@@ -4,7 +4,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 // COL = medewerker SPK=speaker
-$json = array(
+/*$json = array(
     'Type' => 'Request',
     'Method' => 'PUT',
     'Sender' => 'CLP',
@@ -16,10 +16,36 @@ $json = array(
     ),
     'Body' => array (
         'UUID' => '6d9fa04f-2148-c1c4-fb78-590f3af9e935',
-        'fnaam' => 'olee',
+        'fnaam' => 'Testspeaker',
         'email' => 'gast@gmail.test',
        )
+);*/
+
+//JJJJDDMMTHHMMSSZ
+
+$start = "20170522T180000Z";
+$end = "20170522T220000Z";
+
+$json = array(
+    'Type' => 'Request',
+    'Method' => 'PUT',
+    'Sender' => 'CLP',
+    'Receiver' => 'CLP',
+    'ObjectType' => 'EVT',
+    'Credentials' => array (
+        'login' => 'admin',
+        'password' => 'Student1'
+    ),
+    'Body' => array (
+        'UUID' => '6d9fa04f-2148-c1c4-fb78-590f3af9e935',
+        'description' => 'testdesc',
+        'summary' => 'testsum',
+        'start' => $start,
+        'end' => $end,
+        'loc' => 'testloc',
+    )
 );
+
 $input = json_encode($json);
 $connection = new AMQPStreamConnection('10.3.51.32', 5672, 'cloud', 'Student1');
 $channel = $connection->channel();
