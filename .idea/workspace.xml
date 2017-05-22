@@ -1,29 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f9466617-eba2-4084-a177-b2b660af85a4" name="Default" comment="rcv aanpassen, nieuwe rcv toevoegen voor events toe te voegen.&#10;Ook simplecaldav toevoegen">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/receiverEvent.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/simpleCalDAV/.gitattributes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/simpleCalDAV/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/simpleCalDAV/COPYING" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/simpleCalDAV/CalDAVCalendar.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/simpleCalDAV/CalDAVClient.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/simpleCalDAV/CalDAVException.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/simpleCalDAV/CalDAVFilter.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/simpleCalDAV/CalDAVObject.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/simpleCalDAV/README" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/simpleCalDAV/SimpleCalDAVClient.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/simpleCalDAV/TODO" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/simpleCalDAV/config/listCalendars.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/simpleCalDAV/example code/example.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/simpleCalDAV/include/AWLUtilities.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/simpleCalDAV/include/README" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/simpleCalDAV/include/Translation.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/simpleCalDAV/include/XMLDocument.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/simpleCalDAV/include/XMLElement.php" />
+    <list default="true" id="f9466617-eba2-4084-a177-b2b660af85a4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Calendar.php" afterPath="$PROJECT_DIR$/Calendar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/receiver.php" afterPath="$PROJECT_DIR$/receiver.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sender.php" afterPath="$PROJECT_DIR$/sender.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,7 +32,7 @@
       <file leaf-file-name="receiver.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/receiver.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
+            <state relative-caret-position="850">
               <caret line="74" column="33" lean-forward="false" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="33" />
               <folding />
             </state>
@@ -82,28 +62,28 @@
       <file leaf-file-name="Calendar.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Calendar.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="699">
-              <caret line="88" column="30" lean-forward="true" selection-start-line="88" selection-start-column="30" selection-end-line="88" selection-end-column="30" />
+            <state relative-caret-position="136">
+              <caret line="15" column="64" lean-forward="false" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SimpleCalDAVClient.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SimpleCalDAVClient.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/simpleCalDAV/SimpleCalDAVClient.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
+            <state relative-caret-position="34">
               <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sender.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sender.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sender.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="35" column="27" lean-forward="false" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="27" />
+            <state relative-caret-position="140">
+              <caret line="36" column="27" lean-forward="true" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
               <folding>
                 <element signature="e#54#101#0#PHP" expanded="true" />
               </folding>
@@ -114,7 +94,7 @@
       <file leaf-file-name="vbCodeCrm.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vbCodeCrm.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2125">
+            <state relative-caret-position="531">
               <caret line="125" column="13" lean-forward="false" selection-start-line="125" selection-start-column="13" selection-end-line="125" selection-end-column="13" />
               <folding />
             </state>
@@ -137,8 +117,8 @@
         <option value="$PROJECT_DIR$/Users.php" />
         <option value="$PROJECT_DIR$/receiver.php" />
         <option value="$PROJECT_DIR$/receiverEvent.php" />
-        <option value="$PROJECT_DIR$/sender.php" />
         <option value="$PROJECT_DIR$/Calendar.php" />
+        <option value="$PROJECT_DIR$/sender.php" />
       </list>
     </option>
   </component>
@@ -354,7 +334,7 @@
       <workItem from="1494923166951" duration="6147000" />
       <workItem from="1495008025463" duration="9952000" />
       <workItem from="1495208729767" duration="19000" />
-      <workItem from="1495455605995" duration="10436000" />
+      <workItem from="1495455605995" duration="13660000" />
     </task>
     <task id="LOCAL-00001" summary="add group to new user">
       <created>1494924499013</created>
@@ -377,11 +357,18 @@
       <option name="project" value="LOCAL" />
       <updated>1495017442202</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="rcv aanpassen, nieuwe rcv toevoegen voor events toe te voegen.&#10;Ook simplecaldav toevoegen">
+      <created>1495471626370</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1495471626370</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28245000" />
+    <option name="totallyTimeSpent" value="31469000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -394,9 +381,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12473348" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20260021" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -653,24 +641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vbCodeCrm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2125">
-          <caret line="125" column="13" lean-forward="false" selection-start-line="125" selection-start-column="13" selection-end-line="125" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sender.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="35" column="27" lean-forward="false" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="27" />
-          <folding>
-            <element signature="e#54#101#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Users.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -679,10 +649,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/receiver.php">
+    <entry file="file://$PROJECT_DIR$/simpleCalDAV/SimpleCalDAVClient.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="74" column="33" lean-forward="false" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="33" />
+        <state relative-caret-position="34">
+          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Calendar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="15" column="64" lean-forward="false" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
           <folding />
         </state>
       </provider>
@@ -695,19 +673,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Calendar.php">
+    <entry file="file://$PROJECT_DIR$/vbCodeCrm.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="699">
-          <caret line="88" column="30" lean-forward="true" selection-start-line="88" selection-start-column="30" selection-end-line="88" selection-end-column="30" />
+        <state relative-caret-position="531">
+          <caret line="125" column="13" lean-forward="false" selection-start-line="125" selection-start-column="13" selection-end-line="125" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simpleCalDAV/SimpleCalDAVClient.php">
+    <entry file="file://$PROJECT_DIR$/receiver.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        <state relative-caret-position="850">
+          <caret line="74" column="33" lean-forward="false" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="33" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sender.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="36" column="27" lean-forward="true" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+          <folding>
+            <element signature="e#54#101#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

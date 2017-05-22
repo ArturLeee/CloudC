@@ -13,7 +13,7 @@ require_once 'simpleCalDAV/SimpleCalDAVClient.php';
 class Calendar
 {
 //function to create agendaItem
-    function createEvent($Description,$Summary,$START,$END,$Loc, $group)
+    function createEvent($Description,$Summary,$START,$END,$Loc,$group)
     {
         $firstNewEvent = 'BEGIN:VCALENDAR
 PRODID:-//SomeExampleStuff//EN

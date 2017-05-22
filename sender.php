@@ -16,8 +16,9 @@ use PhpAmqpLib\Message\AMQPMessage;
     ),
     'Body' => array (
         'UUID' => '6d9fa04f-2148-c1c4-fb78-590f3af9e935',
-        'fnaam' => 'Testspeaker',
-        'email' => 'gast@gmail.test',
+        'fnaam' => 'Jan',
+        'lnaam' => 'Jansen',
+        'email' => 'jan@gmail.com',
        )
 );*/
 
@@ -38,6 +39,7 @@ $json = array(
     ),
     'Body' => array (
         'UUID' => '6d9fa04f-2148-c1c4-fb78-590f3af9e935',
+        'userID' => '6d9fa04f-2148-c1c4-fb78-590f3af9e935',
         'description' => 'testdesc',
         'summary' => 'testsum',
         'start' => $start,
