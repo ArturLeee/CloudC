@@ -75,7 +75,8 @@ END:VCALENDAR';
         } catch (Exception $e) {
             echo $e->__toString();
         }
-if($group == "SPK"){
+        /*
+if($group == "EVT"){
     try {
         $client = new SimpleCalDAVClient();
         $client->connect('http://10.3.51.24/owncloud/remote.php/dav/calendars/admin/personal/', 'adminSPK', 'Student1');
@@ -88,10 +89,9 @@ if($group == "SPK"){
     } catch (Exception $e) {
         echo $e->__toString();
     }
-
 }
 
-if($group == "COL"){
+if($group == "SHT"){
     try {
         $client = new SimpleCalDAVClient();
         $client->connect('http://10.3.51.24/owncloud/remote.php/dav/calendars/admin/personal/', 'adminCOL', 'Student1');
@@ -104,7 +104,7 @@ if($group == "COL"){
     } catch (Exception $e) {
         echo $e->__toString();
     }
-}
+}*/
 
     }
 }

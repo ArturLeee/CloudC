@@ -26,27 +26,49 @@ use PhpAmqpLib\Message\AMQPMessage;
 
 $start = "20170522T180000Z";
 $end = "20170522T220000Z";
-
+//EVENT
 $json = array(
     'Type' => 'Request',
     'Method' => 'PUT',
     'Sender' => 'CLP',
-    'Receiver' => 'CLP',
+    'Receiver' => 'CLP',//FRE
     'ObjectType' => 'EVT',
     'Credentials' => array (
         'login' => 'admin',
         'password' => 'Student1'
     ),
     'Body' => array (
-        'UUID' => '6d9fa04f-2148-c1c4-fb78-590f3af9e935',
-        'userID' => '6d9fa04f-2148-c1c4-fb78-590f3af9e935',
-        'description' => 'testdesc',
-        'summary' => 'testsum',
+        'uuid' => '6d9fa04f-2148-c1c4-fb78-590f3af9e935',
+        'version' => 5,
+        'topic' => 'testdesc',
+        'topic_description' => 'testsum',
         'start' => $start,
         'end' => $end,
-        'loc' => 'testloc',
+        'location' => 'testloc',
+        'spk_uuid' => 'null',
     )
 );
+//SHIFT
+/*
+$json = array(
+    'Type' => 'Request',
+    'Method' => 'PUT',
+    'Sender' => 'CLP',
+    'Receiver' => 'FRE',
+    'ObjectType' => 'SHT',
+    'Credentials' => array (
+        'login' => 'admin',
+        'password' => 'Student1'
+    ),
+    'Body' => array (
+        'uuid' => '6d9fa04f-2148-c1c4-fb78-590f3af9e935',
+        'version' => '',
+        'col_uuid' => '6d9fa04f-2148-c1c4-fb78-590f3af9e935',
+        'start' => $start,
+        'end' => $end,
+        'location' => 'testloc',
+    )
+);*/
 
 $input = json_encode($json);
 $connection = new AMQPStreamConnection('10.3.51.32', 5672, 'cloud', 'Student1');
@@ -57,5 +79,4 @@ $channel->basic_publish($msg, '', 'PlanningQueue');
 echo " [x] Sent \n";
 $channel->close();
 $connection->close();
-
 ?>

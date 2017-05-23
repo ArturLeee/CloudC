@@ -46,28 +46,38 @@ $callback = function($msg) {
 
         foreach ($body as $name => $value) {
             switch ($name) {
-                case 'UUID':
+                case 'uuid':
                     $id = $value;
-                case 'description':
-                    $description = $value;
-                case 'summary':
-                    $summary = $value;
+                case 'version':
+                    $version = $value;
+                case 'topic':
+                    $topic = $value;
+                case 'topic_description':
+                    $topic_descripton = $value;
+                case 'spk_uuid':
+                    $spk_uuid = $value;
                 case 'start':
                     $start = $value;
                 case 'end':
                     $end = $value;
-                case 'loc':
-                    $loc = $value;
+                case 'location':
+                    $location = $value;
             }
 
             if (!isset($id)) {
                 echo "geen id";
             }
-            if (!isset($description)) {
-                $description = null;
+            if (!isset($version)) {
+                $version = null;
             }
-            if (!isset($summary)) {
-                $summary = null;
+            if (!isset($topic)) {
+                $topic = null;
+            }
+            if (!isset($topic_descripton)) {
+                $topic_descripton = null;
+            }
+            if (!isset($spk_uuid)) {
+                echo "geen id";
             }
             if (!isset($start)) {
                 $start = null;
@@ -75,8 +85,8 @@ $callback = function($msg) {
             if (!isset($end)) {
                 $end = null;
             }
-            if (!isset($loc)) {
-                $loc = null;
+            if (!isset($location)) {
+                $location = null;
             }
           //  $test = date("Y-m-d H:m:s");
 
@@ -84,7 +94,8 @@ $callback = function($msg) {
                 case 'PUT':
                     switch ($objectType) {
                         case 'EVT':
-                            Calendar::createEvent($description, $summary, $start , $end, $loc  );
+                            $group = $objectType;
+                            Calendar::createEvent($topic_descripton, $topic, $start , $end, $location, $group);
                             echo " [x] Received ";
                             break;
                         default:
