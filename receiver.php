@@ -5,7 +5,7 @@ use PhpAmqpLib\Connection\AMQPStreamConnection;
 include_once 'Users.php';
 $connection = new AMQPStreamConnection('10.3.51.32', 5672, 'cloud', 'Student1');
 $channel = $connection->channel();
-$channel->queue_declare('PlanningQueue', false, false, false, false);
+$channel->queue_declare('PlanningQueue', false, true, false, false);
 echo ' [*] Waiting for messages. To exit press CTRL+C', "\n";
 
 
@@ -51,9 +51,9 @@ $callback = function($msg) {
 
         foreach ($body as $name => $value) {
             switch ($name) {
-                case 'UUID':
+                case 'uuid':
                     $id = $value;
-                case 'fnaam':
+                case 'name':
                     $username = $value;
                 case 'email':
                     $email = $value;
