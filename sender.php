@@ -4,7 +4,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 // COL = medewerker SPK=speaker
-/*$json = array(
+$json = array(
     'Type' => 'Request',
     'Method' => 'PUT',
     'Sender' => 'CLP',
@@ -15,15 +15,14 @@ use PhpAmqpLib\Message\AMQPMessage;
     'password' => 'Student1'
     ),
     'Body' => array (
-        'UUID' => '6d9fa04f-2148-c1c4-fb78-590f3af9e935',
-        'fnaam' => 'Jan',
-        'lnaam' => 'Jansen',
+        'uuid' => '6d9fa04f-2148-c1c4-fb78-590f3af9e935',
+        'name' => 'Jan',
         'email' => 'jan@gmail.com',
        )
-);*/
+);
 
 //JJJJDDMMTHHMMSSZ
-
+/*
 $start = "20170522T180000Z";
 $end = "20170522T220000Z";
 //EVENT
