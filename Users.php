@@ -11,7 +11,7 @@ class Users
         echo "Created URL is " . $url . "<br/>";
 
         //create user
-        $ownCloudPOSTArray = array('userid' => $username, 'password' => $passwordUser);
+        $ownCloudPOSTArray = array('userid' => $email, 'password' => $passwordUser);
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $ownCloudPOSTArray);
@@ -33,6 +33,9 @@ class Users
         curl_close($ch);
         echo "Response group from curl :" . $response;
         echo "<br/>Added group to the new user in owncloud<br/>";
+
+
+        //UPDATE `oc_preferences` SET `configvalue`="mail@gmail.com" WHERE `userid` = "Anne"
 
         /*    //add mail to user
             //PUT http://admin:secret@example.com/ocs/v1.php/cloud/users/Frank -d key="email" -d value="franksnewemail@example.org"

@@ -22,8 +22,10 @@ $json = array(
 );
 
 //JJJJDDMMTHHMMSSZ
-/*
+
 $start = "20170522T180000Z";
+
+/*
 $end = "20170522T220000Z";
 //EVENT
 $json = array(
