@@ -5,7 +5,7 @@ use PhpAmqpLib\Connection\AMQPStreamConnection;
 include_once 'Calendar.php';
 $connection = new AMQPStreamConnection('10.3.51.32', 5672, 'cloud', 'Student1');
 $channel = $connection->channel();
-$channel->queue_declare('PlanningQueue', false, false, false, false);
+$channel->queue_declare('PlanningQueue', false, true, false, false);
 echo ' [*] Waiting for messages. To exit press CTRL+C', "\n";
 
 $callback = function($msg) {
@@ -94,8 +94,11 @@ $callback = function($msg) {
                 case 'PUT':
                     switch ($objectType) {
                         case 'EVT':
-                            $group = $objectType;
-                            Calendar::createEvent($topic_descripton, $topic, $start , $end, $location, $group);
+                            Calendar::createEvent($topic_descripton, $topic, $start , $end, $location);
+                            echo " [x] Received ";
+                            break;
+                        case 'SHT':
+                            Calendar::createShift($topic_descripton, $topic, $start , $end, $location);
                             echo " [x] Received ";
                             break;
                         default:
