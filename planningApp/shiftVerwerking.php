@@ -2,29 +2,21 @@
 /**
  * Created by PhpStorm.
  * User: geldh
- * Date: 24/05/2017
- * Time: 13:38
+ * Date: 26/05/2017
+ * Time: 14:57
  */
-$naam = $_POST['naam'];
-$gastspreker = $_POST['gastspreker'];
-$beschrijving = $_POST['beschrijving'];
+$collaborator = $_POST['collaborator'];
 $dag = $_POST['dag'];
 $start =$_POST['start'];
 $einde = $_POST['einde'];
 $locatie = $_POST['locatie'];
+$objecttype = "SHT";
+$spk_uuid = "null";
+
 
 $startFRO = strtotime($dag . " " . $start);
 $endFRO = strtotime($dag . " " . $einde);
 //$startOwncloud = date();
-
-md5();
-
-if($gastspreker == "geen"){
-    $objecttype = "EVT";
-    $spk_uuid = "null";
-}else{
-    $objecttype = "SPK";
-}
 
 require_once __DIR__ . '/vendor/autoload.php';
 use PhpAmqpLib\Connection\AMQPStreamConnection;
@@ -35,7 +27,7 @@ $json = array(
     'Method' => 'POST',
     'Sender' => 'CLP',
     'Receiver' => 'FRE',
-    'ObjectType' => 'EVT',
+    'ObjectType' => 'SHTT',
     'Credentials' => array (
         'login' => 'admin',
         'password' => 'Student1'
@@ -43,11 +35,11 @@ $json = array(
     'Body' => array (
         'uuid' => getUuid(),
         'version' => 1,
-        'topic' => $naam,
-        'topic_description' => $beschrijving,
+        'topic' => 'testdesc',
+        'topic_description' => 'testsum',
         'start' => $startFRO,
         'end' => $endFRO,
-        'location' => $locatie,
+        'location' => 'testloc',
         'spk_uuid' => 'null',
     )
 );

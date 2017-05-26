@@ -24,25 +24,49 @@
 </head>
 
 <body>
+
+<?php
+$conn = mysqli_connect("localhost","root", "lalolu4", "owncloud");
+
+$stmt = $conn->prepare("SELECT uid FROM oc_group_user WHERE gid = collaborator");
+$stmt->execute();
+$stmt->bind_result($uid);
+$result = array();
+while($row=$stmt->fetch()){
+    array_push($result,$uid);
+}
+
+?>
+
 <br>
 <br>
 <div class="container">
     <h1>Shift aanmaken</h1>
-    <form method="post" name="contact" action="">
+    <form method="post" name="formShift" action="shiftVerwerking.php">
         <div class="form-group">
-            <label for="email">Dag</label>
-            <input type="date" name="start" class="form-control" id="start"">
+            <label>Kies medewerker</label>
+            <select name="collaborator">
+                <?php
+                foreach($result as $value):
+                    echo '<option value="'.$value.'">'.$value.'</option>'; //close your tags!!
+                endforeach;
+                ?>
+            </select>
         </div>
         <div class="form-group">
-            <label for="email">Start</label>
+            <label>Dag</label>
+            <input type="date" name="dag" class="form-control" id="start"">
+        </div>
+        <div class="form-group">
+            <label>Start</label>
             <input type="time" name="start" class="form-control" id="start"">
         </div>
         <div class="form-group">
-            <label for="email">Einde</label>
+            <label>Einde</label>
             <input type="time" name="einde" class="form-control" id="einde"">
         </div>
         <div class="form-group">
-            <label for="naam">Locatie</label>
+            <label>Locatie</label>
             <input type="text" name="locatie" class="form-control" id="locatie">
         </div>
         <button type="submit" value="Send" class="btn btn-default">Submit</button>

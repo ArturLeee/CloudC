@@ -27,9 +27,9 @@
 <br>
 <br>
 <?php
-$conn = mysqli_connect("10.3.51.24","root", "lalolu4", "owncloud");
+$conn = mysqli_connect("localhost","root", "lalolu4", "owncloud");
 
-$stmt = $conn->prepare("SELECT uid FROM oc_users");
+$stmt = $conn->prepare("SELECT 'uid' FROM 'oc_group_user' WHERE 'gid' = 'gastspreker'");
 $stmt->execute();
 $stmt->bind_result($uid);
 $result = array();
@@ -46,8 +46,9 @@ while($row=$stmt->fetch()){
             <input type="text" name="naam" class="form-control">
         </div>
         <div class="form-group">
-            <label for="naam">Kies user</label>
-            <select name="country">
+            <label>Kies gastspreker</label>
+            <select name="gastspreker">
+                <option value="geen" >Geen gastspreker event</option>
             <?php
             foreach($result as $value):
                 echo '<option value="'.$value.'">'.$value.'</option>'; //close your tags!!
