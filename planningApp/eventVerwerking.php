@@ -6,24 +6,25 @@
  * Time: 13:38
  */
 $naam = $_POST['naam'];
-$gastspreker = $_POST['gastspreker'];
 $beschrijving = $_POST['beschrijving'];
 $dag = $_POST['dag'];
 $start =$_POST['start'];
 $einde = $_POST['einde'];
 $locatie = $_POST['locatie'];
+$objecttype = "EVT";
+
 
 $startFRO = strtotime($dag . " " . $start);
 $endFRO = strtotime($dag . " " . $einde);
 //$startOwncloud = date();
 
-md5();
 
-if($gastspreker == "geen"){
-    $objecttype = "EVT";
-    $spk_uuid = "null";
+if( $_POST['gastspreker'] == "geen"){
+    $spk_uuid= "null";
+    $uniqStr = str_replace(' ', '', $beschrijving);
 }else{
-    $objecttype = "SPK";
+    $spk_uuid = $_POST['gastspreker'];
+    $uniqStr = $spk_uuid;
 }
 
 require_once __DIR__ . '/vendor/autoload.php';
@@ -41,14 +42,14 @@ $json = array(
         'password' => 'Student1'
     ),
     'Body' => array (
-        'uuid' => getUuid(),
+        'uuid' => getUuid($uniqStr, $objecttype),
         'version' => 1,
         'topic' => $naam,
         'topic_description' => $beschrijving,
         'start' => $startFRO,
         'end' => $endFRO,
         'location' => $locatie,
-        'spk_uuid' => 'null',
+        'spk_uuid' => $spk_uuid,
     )
 );
 
@@ -63,6 +64,7 @@ echo " [x] Sent \n";
 $channel->close();
 $connection->close();
 
+header("location:Main.php");
 
 
 function getUuid($uniqString, $kind){

@@ -5,20 +5,19 @@
  * Date: 26/05/2017
  * Time: 14:57
  */
-$collaborator = $_POST['collaborator'];
 $dag = $_POST['dag'];
 $start =$_POST['start'];
 $einde = $_POST['einde'];
 $locatie = $_POST['locatie'];
 $objecttype = "SHT";
-$spk_uuid = "null";
+$col_uuid = $_POST['collaborator'];
 
 
 $startFRO = strtotime($dag . " " . $start);
 $endFRO = strtotime($dag . " " . $einde);
 //$startOwncloud = date();
 
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '../vendor/autoload.php';
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 // COL = medewerker SPK=speaker
@@ -33,14 +32,12 @@ $json = array(
         'password' => 'Student1'
     ),
     'Body' => array (
-        'uuid' => getUuid(),
+        'uuid' => getUuid($col_uuid, $objecttype),
         'version' => 1,
-        'topic' => 'testdesc',
-        'topic_description' => 'testsum',
+        'col_uuid' => $col_uuid,
         'start' => $startFRO,
         'end' => $endFRO,
-        'location' => 'testloc',
-        'spk_uuid' => 'null',
+        'location' => $locatie,
     )
 );
 
@@ -55,6 +52,7 @@ echo " [x] Sent \n";
 $channel->close();
 $connection->close();
 
+header("location:Main.php");
 
 
 function getUuid($uniqString, $kind){

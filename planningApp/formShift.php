@@ -27,7 +27,6 @@
 
 <?php
 $conn = mysqli_connect("localhost","root", "lalolu4", "owncloud");
-
 $stmt = $conn->prepare("SELECT uid FROM oc_group_user WHERE gid = collaborator");
 $stmt->execute();
 $stmt->bind_result($uid);
@@ -35,7 +34,6 @@ $result = array();
 while($row=$stmt->fetch()){
     array_push($result,$uid);
 }
-
 ?>
 
 <br>
@@ -71,11 +69,8 @@ while($row=$stmt->fetch()){
         </div>
         <button type="submit" value="Send" class="btn btn-default">Submit</button>
         <a href="Main.php" class="btn btn-default">Terug</a>
-
     </form>
-
     <hr>
-
     <!-- Footer -->
     <footer>
         <div class="row">
@@ -84,17 +79,11 @@ while($row=$stmt->fetch()){
             </div>
         </div>
     </footer>
-
 </div>
 <!-- /.container -->
-
 <!-- jQuery -->
 <script src="bootstrap/js/jquery.js"></script>
-
 <!-- Bootstrap Core JavaScript -->
 <script src="bootstrap/js/bootstrap.min.js"></script>
-
-
 </body>
-
 </html>

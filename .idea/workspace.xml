@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f9466617-eba2-4084-a177-b2b660af85a4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Users.php" afterPath="$PROJECT_DIR$/Users.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/planningApp/eventVerwerking.php" afterPath="$PROJECT_DIR$/planningApp/eventVerwerking.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/planningApp/formShift.php" afterPath="$PROJECT_DIR$/planningApp/formShift.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/planningApp/shiftVerwerking.php" afterPath="$PROJECT_DIR$/planningApp/shiftVerwerking.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/receiver.php" afterPath="$PROJECT_DIR$/receiver.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,33 +34,23 @@
       <file leaf-file-name="receiver.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/receiver.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="60" column="45" lean-forward="false" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="45" />
+            <state relative-caret-position="442">
+              <caret line="66" column="21" lean-forward="true" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Users.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Users.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Users.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
+            <state relative-caret-position="493">
               <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="30" selection-end-column="2" />
               <folding>
                 <marker date="1495804296126" expanded="true" signature="980:1030" ph="UPDATE `oc_u... " />
                 <marker date="1495804296126" expanded="true" signature="980:1034" ph="UPDATE oc_us... " />
                 <marker date="1495804296126" expanded="true" signature="980:1035" ph="UPDATE oc_us... " />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Calendar.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Calendar.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" column="23" lean-forward="false" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -74,7 +67,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/planningApp/Main.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="510">
@@ -87,10 +80,10 @@
       <file leaf-file-name="shiftVerwerking.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/planningApp/shiftVerwerking.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="29" column="27" lean-forward="true" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
+            <state relative-caret-position="308">
+              <caret line="54" column="19" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
               <folding>
-                <element signature="e#435#482#0#PHP" expanded="true" />
+                <element signature="e#413#460#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -99,10 +92,11 @@
       <file leaf-file-name="formShift.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/planningApp/formShift.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="37" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+            <state relative-caret-position="563">
+              <caret line="71" column="11" lean-forward="true" selection-start-line="71" selection-start-column="11" selection-end-line="71" selection-end-column="11" />
               <folding>
-                <marker date="1495803668206" expanded="true" signature="816:870" ph="SELECT uid F... oc_group_user" />
+                <element signature="e#2421#2427#0#HTML" expanded="true" />
+                <marker date="1495806100218" expanded="true" signature="815:869" ph="SELECT uid F... oc_group_user" />
               </folding>
             </state>
           </provider>
@@ -111,10 +105,10 @@
       <file leaf-file-name="eventVerwerking.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/planningApp/eventVerwerking.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="43" column="28" lean-forward="true" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+            <state relative-caret-position="376">
+              <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding>
-                <element signature="e#575#622#0#PHP" expanded="true" />
+                <element signature="e#628#675#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -123,7 +117,7 @@
       <file leaf-file-name="formEvent.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/planningApp/formEvent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="340">
               <caret line="40" column="23" lean-forward="true" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
               <folding>
                 <marker date="1495793924054" expanded="true" signature="825:857" ph="SELECT uid F... oc_users" />
@@ -160,14 +154,14 @@
       <list>
         <option value="$PROJECT_DIR$/Calendar.php" />
         <option value="$PROJECT_DIR$/receiverEvent.php" />
-        <option value="$PROJECT_DIR$/receiver.php" />
         <option value="$PROJECT_DIR$/sender.php" />
         <option value="$PROJECT_DIR$/planningApp/Main.php" />
         <option value="$PROJECT_DIR$/planningApp/formEvent.php" />
+        <option value="$PROJECT_DIR$/Users.php" />
         <option value="$PROJECT_DIR$/planningApp/formShift.php" />
+        <option value="$PROJECT_DIR$/receiver.php" />
         <option value="$PROJECT_DIR$/planningApp/shiftVerwerking.php" />
         <option value="$PROJECT_DIR$/planningApp/eventVerwerking.php" />
-        <option value="$PROJECT_DIR$/Users.php" />
       </list>
     </option>
   </component>
@@ -400,7 +394,7 @@
       <workItem from="1495455605995" duration="13684000" />
       <workItem from="1495542640868" duration="6258000" />
       <workItem from="1495611620626" duration="22789000" />
-      <workItem from="1495789329969" duration="4874000" />
+      <workItem from="1495789329969" duration="6707000" />
     </task>
     <task id="LOCAL-00001" summary="add group to new user">
       <created>1494924499013</created>
@@ -472,11 +466,18 @@
       <option name="project" value="LOCAL" />
       <updated>1495803849041</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="invoegen id via api call en name via database owncloud, nog in comment line">
+      <created>1495804370707</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1495804370707</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65414000" />
+    <option name="totallyTimeSpent" value="67247000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -546,21 +547,14 @@
     <MESSAGE value="recv in orde gemaakt voor users" />
     <MESSAGE value="planning app" />
     <MESSAGE value="aanmaken verwerking voor shift, updaten forms" />
-    <option name="LAST_COMMIT_MESSAGE" value="aanmaken verwerking voor shift, updaten forms" />
+    <MESSAGE value="invoegen id via api call en name via database owncloud, nog in comment line" />
+    <option name="LAST_COMMIT_MESSAGE" value="invoegen id via api call en name via database owncloud, nog in comment line" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/simpleCalDAV/SimpleCalDAVClient.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sender.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
@@ -928,37 +922,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/planningApp/Main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="28" lean-forward="false" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/planningApp/eventVerwerking.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="43" column="28" lean-forward="true" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
-          <folding>
-            <element signature="e#575#622#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/planningApp/shiftVerwerking.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="29" column="27" lean-forward="true" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
-          <folding>
-            <element signature="e#435#482#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/planningApp/formEvent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
+        <state relative-caret-position="340">
           <caret line="40" column="23" lean-forward="true" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
           <folding>
             <marker date="1495793924054" expanded="true" signature="825:857" ph="SELECT uid F... oc_users" />
@@ -969,33 +935,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/receiver.php">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/superglobals/_superglobals.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="60" column="45" lean-forward="false" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="45" />
+        <state relative-caret-position="298">
+          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/planningApp/formShift.php">
+    <entry file="file://$PROJECT_DIR$/receiver.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding>
-            <marker date="1495803668206" expanded="true" signature="816:870" ph="SELECT uid F... oc_group_user" />
-          </folding>
+        <state relative-caret-position="442">
+          <caret line="66" column="21" lean-forward="true" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
+        <state relative-caret-position="493">
           <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="30" selection-end-column="2" />
           <folding>
             <marker date="1495804296126" expanded="true" signature="980:1030" ph="UPDATE `oc_u... " />
             <marker date="1495804296126" expanded="true" signature="980:1034" ph="UPDATE oc_us... " />
             <marker date="1495804296126" expanded="true" signature="980:1035" ph="UPDATE oc_us... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/planningApp/formShift.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="71" column="11" lean-forward="true" selection-start-line="71" selection-start-column="11" selection-end-line="71" selection-end-column="11" />
+          <folding>
+            <element signature="e#2421#2427#0#HTML" expanded="true" />
+            <marker date="1495806100218" expanded="true" signature="815:869" ph="SELECT uid F... oc_group_user" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/planningApp/shiftVerwerking.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="54" column="19" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding>
+            <element signature="e#413#460#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/planningApp/eventVerwerking.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding>
+            <element signature="e#628#675#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/planningApp/Main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="28" lean-forward="false" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>

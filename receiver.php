@@ -45,7 +45,7 @@ $callback = function($msg) {
             }
 
             switch ($method) {
-                case 'PUT':
+                case 'POST':
                     switch ($objectType) {
                         case 'SPK':
                             $group = "gastspreker";
@@ -78,7 +78,7 @@ $callback = function($msg) {
                             break;
                     }
                     break;
-                case 'POST':
+                case 'PUT':
                     switch ($objectType) {
                         case 'SPK':
                             break;
