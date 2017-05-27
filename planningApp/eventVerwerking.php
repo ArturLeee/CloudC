@@ -13,11 +13,9 @@ $einde = $_POST['einde'];
 $locatie = $_POST['locatie'];
 $objecttype = "EVT";
 
-
 $startFRO = strtotime($dag . " " . $start);
 $endFRO = strtotime($dag . " " . $einde);
 //$startOwncloud = date();
-
 
 if( $_POST['gastspreker'] == "geen"){
     $spk_uuid= "null";

@@ -40,6 +40,7 @@ $result = array();
 while($row=$stmt->fetch()){
     array_push($result,$uid);
 }
+
 */
 ?>
 <div class="container">
@@ -56,7 +57,10 @@ while($row=$stmt->fetch()){
             <?php
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo '<option value="'.$row["uid"].'">'. $row["uid"].'</option>';
+                  //  $huidige = $row["uid"];
+                  //  $sql2 = "SELECT displayname FROM oc_users WHERE uid = '$huidige'";
+                   // $resultName = $conn->query($sql2);
+                    echo '<option value="'.$row["uid"].'">'.$row["uid"].'</option>';
                 }
             }
             /*
