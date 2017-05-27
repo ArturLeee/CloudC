@@ -26,17 +26,21 @@
 <body>
 <br>
 <br>
+
 <?php
 $conn = mysqli_connect("localhost","root", "lalolu4", "owncloud");
+$sql = "SELECT uid FROM oc_group_user WHERE gid = 'gastspreker'";
+$result = $conn->query($sql);
 
-$stmt = $conn->prepare("SELECT 'uid' FROM 'oc_group_user' WHERE 'gid' = 'gastspreker'");
+
+/*$stmt = $conn->prepare("SELECT uid FROM oc_group_user WHERE gid = gastspreker");
 $stmt->execute();
 $stmt->bind_result($uid);
 $result = array();
 while($row=$stmt->fetch()){
     array_push($result,$uid);
 }
-
+*/
 ?>
 <div class="container">
     <h1>Event aanmaken</h1>
@@ -50,9 +54,15 @@ while($row=$stmt->fetch()){
             <select name="gastspreker">
                 <option value="geen" >Geen gastspreker event</option>
             <?php
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    echo '<option value="'.$row["uid"].'">'. $row["uid"].'</option>';
+                }
+            }
+            /*
             foreach($result as $value):
                 echo '<option value="'.$value.'">'.$value.'</option>'; //close your tags!!
-            endforeach;
+            endforeach;*/
             ?>
             </select>
         </div>

@@ -26,14 +26,11 @@
 <body>
 
 <?php
+
 $conn = mysqli_connect("localhost","root", "lalolu4", "owncloud");
-$stmt = $conn->prepare("SELECT uid FROM oc_group_user WHERE gid = collaborator");
-$stmt->execute();
-$stmt->bind_result($uid);
-$result = array();
-while($row=$stmt->fetch()){
-    array_push($result,$uid);
-}
+$sql = "SELECT uid FROM oc_group_user WHERE gid = 'collaborator'";
+$result = $conn->query($sql);
+
 ?>
 
 <br>
@@ -41,16 +38,25 @@ while($row=$stmt->fetch()){
 <div class="container">
     <h1>Shift aanmaken</h1>
     <form method="post" name="formShift" action="shiftVerwerking.php">
-        <div class="form-group">
-            <label>Kies medewerker</label>
-            <select name="collaborator">
-                <?php
-                foreach($result as $value):
-                    echo '<option value="'.$value.'">'.$value.'</option>'; //close your tags!!
-                endforeach;
-                ?>
-            </select>
-        </div>
+        <?php  if ($result->num_rows > 0) {
+            ?>
+            <div class="form-group">
+                <label>Kies medewerker</label>
+                <select name="collaborator">
+                    <?php
+                    while ($row = $result->fetch_assoc()) {
+                        echo '<option value="' . $row["uid"] . '">' . $row["uid"] . '</option>';
+                    }
+
+                    ?>
+                </select>
+            </div>
+            <?php
+        }else{
+           echo" <label>! Geen medewerkers beschikbaar, er kaan geen shift worden aangemaakt</label>";
+        }
+        ?>
+
         <div class="form-group">
             <label>Dag</label>
             <input type="date" name="dag" class="form-control" id="start"">
