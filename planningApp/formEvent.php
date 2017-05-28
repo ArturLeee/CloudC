@@ -48,11 +48,12 @@ while($row=$stmt->fetch()){
     <form method="post" action="eventVerwerking.php">
         <div class="form-group">
             <label for="naam">Naam</label>
-            <input type="text" name="naam" class="form-control">
+            <input type="text" name="naam" class="form-control"value="<?php echo $values["voornaam"]; ?>" >
+            <div><?php echo $errors["voornaam"]; ?></div>
         </div>
         <div class="form-group">
             <label>Kies gastspreker</label>
-            <select name="gastspreker">
+            <select title="gastspreker" name="gastspreker">
                 <option value="geen" >Geen gastspreker event</option>
             <?php
             if ($result->num_rows > 0) {
