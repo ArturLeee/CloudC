@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>PhotoStuff</title>
+    <title>Event</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -29,8 +29,10 @@
 
 <?php
 $conn = mysqli_connect("localhost","root", "lalolu4", "owncloud");
-$sql = "SELECT uid FROM oc_group_user WHERE gid = 'gastspreker'";
+$sql = "SELECT u.uid, u.displayname FROM oc_group_user gu JOIN oc_users u ON u.uid = gu.uid and gu.gid = 'gastspreker'";
 $result = $conn->query($sql);
+
+
 
 /*$stmt = $conn->prepare("SELECT uid FROM oc_group_user WHERE gid = gastspreker");
 $stmt->execute();
@@ -58,10 +60,7 @@ while($row=$stmt->fetch()){
             <?php
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                  //  $huidige = $row["uid"];
-                  //  $sql2 = "SELECT displayname FROM oc_users WHERE uid = '$huidige'";
-                   // $resultName = $conn->query($sql2);
-                    echo '<option value="'.$row["uid"].'">'.$row["uid"].'</option>';
+                    echo '<option value="'.$row["uid"].'">'.$row["displayname"].'</option>';
                 }
             }
             /*

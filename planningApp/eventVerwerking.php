@@ -117,7 +117,7 @@ var_dump($json);
             'ObjectType' => 'EVT',
             'Credentials' => array(
                 'login' => 'admin',
-                'password' => 'Student1'
+                'password' => md5('Student1')
             ),
             'Body' => array(
                 'uuid' => $uuid,
@@ -140,11 +140,13 @@ var_dump($json);
          $channel = $connection->channel();
          echo "test3";
          $channel->queue_declare('FrontendQueue', false, true, false, false);
-         echo "test4";
+        $channel->queue_declare('MonitoringLogQueue', false, true, false, false);
+        echo "test4";
          $msg = new AMQPMessage($input);
          echo "test5";
          $channel->basic_publish($msg, '', 'FrontendQueue');
-         echo " [x] Sent \n";
+        $channel->basic_publish($msg, '', 'MonitoringLogQueue');
+        echo " [x] Sent \n";
          $channel->close();
          $connection->close();
     }

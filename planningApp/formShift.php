@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>PhotoStuff</title>
+    <title>Shift</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,9 +26,8 @@
 <body>
 
 <?php
-
 $conn = mysqli_connect("localhost","root", "lalolu4", "owncloud");
-$sql = "SELECT uid FROM oc_group_user WHERE gid = 'collaborator'";
+$sql = "SELECT u.uid, u.displayname FROM oc_group_user gu JOIN oc_users u ON u.uid = gu.uid and gu.gid = 'collaborator'";
 $result = $conn->query($sql);
 
 ?>
@@ -45,9 +44,8 @@ $result = $conn->query($sql);
                 <select name="collaborator">
                     <?php
                     while ($row = $result->fetch_assoc()) {
-                        echo '<option value="' . $row["uid"] . '">' . $row["uid"] . '</option>';
+                        echo '<option value="' . $row["uid"] . '">' . $row["displayname"] . '</option>';
                     }
-
                     ?>
                 </select>
             </div>
@@ -56,7 +54,7 @@ $result = $conn->query($sql);
            echo" <label>! Geen medewerkers beschikbaar, er kaan geen shift worden aangemaakt</label>";
         }
         ?>
-
+        
         <div class="form-group">
             <label>Dag</label>
             <input type="date" name="dag" class="form-control" id="start"">
