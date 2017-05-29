@@ -54,7 +54,7 @@ $result = $conn->query($sql);
            echo" <label>! Geen medewerkers beschikbaar, er kaan geen shift worden aangemaakt</label>";
         }
         ?>
-        
+
         <div class="form-group">
             <label>Dag</label>
             <input type="date" name="dag" class="form-control" id="start"">

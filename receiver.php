@@ -11,6 +11,7 @@ $callback = function($msg) {
     echo " [x] Received ", $msg->body, "\n";
     var_dump($msg->body);
 
+    
     $json = json_decode($msg->body, true);
 
     $credentials = $json['Credentials'];
