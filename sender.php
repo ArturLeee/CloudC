@@ -6,7 +6,7 @@ use PhpAmqpLib\Message\AMQPMessage;
 // COL = medewerker SPK=speaker
 $json = array(
     'Type' => 'Request',
-    'Method' => 'PUT',
+    'Method' => 'POST',
     'Sender' => 'CLP',
     'Receiver' => 'CLP',
     'ObjectType' => 'SPK',
@@ -16,14 +16,16 @@ $json = array(
     ),
     'Body' => array (
         'uuid' => '6d9fa04f-2148-c1c4-fb78-590f3af9e935',
-        'name' => 'Jan',
-        'email' => 'jan@gmail.com',
+        'name' => 'remco',
+        'email' => 'ee@gmail.com',
        )
 );
 
 //JJJJDDMMTHHMMSSZ
-/*
+
 $start = "20170522T180000Z";
+
+/*
 $end = "20170522T220000Z";
 //EVENT
 $json = array(

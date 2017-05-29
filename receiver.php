@@ -45,21 +45,21 @@ $callback = function($msg) {
             }
 
             switch ($method) {
-                case 'PUT':
+                case 'POST':
                     switch ($objectType) {
                         case 'SPK':
                             $group = "gastspreker";
-                            Users::createUsers($login, $password, $id, $username, $email, $group);
+                            Users::createUsers($id, $username, $email, $group);
                             echo " [x] Received ";
                             break;
                         case 'COL':
                             $group = "collaborator";
-                            Users::createUsers($login, $password, $id, $username, $email, $group);
+                            Users::createUsers($id, $username, $email, $group);
                             echo " [x] Received ";
                             break;
                         case 'SPO':
                             $group = "sponsor";
-                            Users::createUsers($login, $password, $id, $username, $email, $group);
+                            Users::createUsers($id, $username, $email, $group);
                             echo " [x] Received ";
                             break;
                         default:
@@ -78,7 +78,7 @@ $callback = function($msg) {
                             break;
                     }
                     break;
-                case 'POST':
+                case 'PUT':
                     switch ($objectType) {
                         case 'SPK':
                             break;
