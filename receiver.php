@@ -27,10 +27,13 @@ $callback = function($msg) {
             switch ($name) {
                 case 'uuid':
                     $id = $value;
+                    break;
                 case 'name':
                     $username = $value;
+                    break;
                 case 'email':
                     $email = $value;
+                    break;
             }
         }
 

@@ -7,14 +7,22 @@
 <body>
 
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 /**
  * Created by PhpStorm.
  * User: geldh
  * Date: 24/05/2017
  * Time: 13:38
  */
+
+require_once '../vendor/autoload.php';
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
+
+//phpinfo();
 
 /*
 $check =true;
@@ -99,7 +107,6 @@ var_dump($json);
         ?>  <a href="formEvent.php">Terug naar form</> <br><?php
     }else {
 
-       // require_once __DIR__ . '../vendor/autoload.php';
 
         echo "statuscode: 200";
         $json = array(
@@ -129,11 +136,13 @@ var_dump($json);
          $input = json_encode($json);
          echo "test1";
          $connection = new AMQPStreamConnection('10.3.51.32', 5672, 'cloud', 'Student1');
-        echo "test2";
-        $channel = $connection->channel();
-        echo "test3";
-        $channel->queue_declare('FrontendQueue', false, true, false, false);
+         echo "test2";
+         $channel = $connection->channel();
+         echo "test3";
+         $channel->queue_declare('FrontendQueue', false, true, false, false);
+         echo "test4";
          $msg = new AMQPMessage($input);
+         echo "test5";
          $channel->basic_publish($msg, '', 'FrontendQueue');
          echo " [x] Sent \n";
          $channel->close();
@@ -141,7 +150,6 @@ var_dump($json);
     }
 
 ?>
-
 
 <a href="Main.php" class="btn btn-default">Terug naar main</a>
 
@@ -181,9 +189,7 @@ echo "start func";
             //$json = json_decode($response);
 //echo "var dump: ";
             // var_dump($json);
-            ?>
-            <br>
-            <?php
+
             // $statusCode = $json['StatusCode'];
 
             return $response;
