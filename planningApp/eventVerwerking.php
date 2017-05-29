@@ -16,126 +16,46 @@
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 
-$valid = true;
-
-$allValues = [
-    "naam",
-    "beschrijving",
-    "dag",
-    "start",
-    "einde",
-    "locatie"
-];
-
-$errors = [
-    "naam" => "",
-    "beschrijving" => "",
-    "dag" => "",
-    "start" => "",
-    "einde" => "",
-    "locatie" => ""
-];
-
- $values = [
-    "naam" => "",
-    "beschrijving" => "",
-    "dag" => "",
-    "start" => "",
-    "einde" => "",
-    "locatie" => ""
-];
-echo "test1";
-if ($_SERVER["REQUEST_METHOD"]  !== "POST") {
-    echo "test2";
-
-    include 'formEvent.php';
-    echo "test3";
-
-}else{
-    echo "test4";
-
-    checkRequired($allValues);
-    echo "test9";
-
-
-    foreach($errors as $error) {
-        echo "test10";
-        if(!empty($error)) {
-            echo "test11";
-            $valid = false;
-            break;
-        }
-    }
-
-    if(!$valid) {
-        echo "test12";
-        include 'formEvent.php';
-    } else {
-        echo "test130";
-        // anders wordt het resultaat getoond
-        SendEvent();
-    }
-
-    function checkRequired($fields) {
-        echo "test5";
-        foreach($fields as $name) {
-            echo "test6";
-            if(required($name)) {
-                global $values;
-                $values[$name] = $_POST[$name];
-                echo "test7";
-            } else {
-                global $errors;
-                echo "test8";
-                $errors[$name] = "Dit veld is verplicht in te vullen";
-            }
-        }
-    }
-
-}
 /*
+$check =true;
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["naam"])) {
-        $nameErr = "Naam is niet ingevuld";
         $check = false;
     } else {
         $naam = $_POST['naam'];
     }
     if (empty($_POST["beschrijving"])) {
-        $beschrijvingErr = "Beschrijving is niet ingevuld";
         $check = false;
     } else {
         $beschrijving = $_POST['beschrijving'];
     }
     if (empty($_POST["dag"])) {
-        $dagErr = "Dag is niet ingevuld";
         $check = false;
     } else {
         $dag = $_POST['dag'];
     }
     if (empty($_POST["start"])) {
-        $startErr = "Start is niet ingevuld";
         $check = false;
     } else {
         $start =$_POST['start'];
     }
     if (empty($_POST["einde"])) {
-        $eindeErr = "Einde is niet ingevuld";
         $check = false;
     } else {
         $einde = $_POST['einde'];
     }
     if (empty($_POST["locatie"])) {
-        $locatieErr = "Locatie is niet ingevuld";
         $check = false;
-    } else {
+    }else{
         $locatie = $_POST['locatie'];
     }
 }
-*/
 
-function SendEvent()
-{
+if($check == false){
+    header("location:formEvent.php");
+}
+*/
     $naam = $_POST['naam'];
     $beschrijving = $_POST['beschrijving'];
     $dag = $_POST['dag'];
@@ -147,7 +67,7 @@ function SendEvent()
 
     $startFRO = strtotime($dag . " " . $start);
     $endFRO = strtotime($dag . " " . $einde);
-//$startOwncloud = date();
+    //$startOwncloud = date();
 
     if ($_POST['gastspreker'] == "geen") {
         $spk_uuid = "null";
@@ -157,73 +77,118 @@ function SendEvent()
         $uniqStr = $spk_uuid;
     }
 
-    require_once __DIR__ . '/vendor/autoload.php';
+    $response = getUuid($uniqStr, $objecttype);
+    $json = json_decode($response, true);
 
+echo "var dump: ";
+var_dump($json);
 
-// COL = medewerker SPK=speaker
-    $json = array(
-        'Type' => 'Request',
-        'Method' => 'POST',
-        'Sender' => 'CLP',
-        'Receiver' => 'FRE',
-        'ObjectType' => 'EVT',
-        'Credentials' => array(
-            'login' => 'admin',
-            'password' => 'Student1'
-        ),
-        'Body' => array(
-           // 'uuid' => getUuid($uniqStr, $objecttype),
-            'version' => 1,
-            'topic' => $naam,
-            'topic_description' => $beschrijving,
-            'start' => $startFRO,
-            'end' => $endFRO,
-            'location' => $locatie,
-            'spk_uuid' => $spk_uuid,
-        )
-    );
+    $statusCode = $json["StatusCode"];
+    $uuid = $json['StatusMessage']["UUID"];
+    $version = $json['StatusMessage']["Version"];
 
-/*
-    $input = json_encode($json);
-    $connection = new AMQPStreamConnection('10.3.51.32', 5672, 'cloud', 'Student1');
-    $channel = $connection->channel();
-    $channel->queue_declare('FrontendQueue', false, true, false, false);
-    $msg = new AMQPMessage($input);
-    $channel->basic_publish($msg, '', 'FrontendQueue');
-    echo " [x] Sent \n";
-    $channel->close();
-    $connection->close();
-*/
-    header("location:Main.php");
+    echo "statuscode";
+    echo $statusCode;
+    echo "uuid";
+    echo $uuid;
+    echo "version";
+    echo  $version;
 
+    if ($statusCode != 200) {
+        echo "Fout, statuscode: " . $statusCode;
+        ?>  <a href="formEvent.php">Terug naar form</> <br><?php
+    }else {
 
-    function getUuid($uniqString, $kind)
-    {
+       // require_once __DIR__ . '../vendor/autoload.php';
 
-        $url = '10.3.51.41/api/v1/uuid';
-
-        $params = array(
-            'login' => "cloud",
-            'password' => md5("R7YWjP"),
-            'uniq' => $uniqString,
-            'kind' => $kind
+        echo "statuscode: 200";
+        $json = array(
+            'Type' => 'Request',
+            'Method' => 'POST',
+            'Sender' => 'CLP',
+            'Receiver' => 'FRE',
+            'ObjectType' => 'EVT',
+            'Credentials' => array(
+                'login' => 'admin',
+                'password' => 'Student1'
+            ),
+            'Body' => array(
+                'uuid' => $uuid,
+                'version' => $version,
+                'topic' => $naam,
+                'topic_description' => $beschrijving,
+                'start' => $startFRO,
+                'end' => $endFRO,
+                'location' => $locatie,
+                'spk_uuid' => $spk_uuid,
+            )
         );
 
-        $json = json_encode($params);
-        print_r($json);
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Content-Length: ' . strlen($json)));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
+        echo "json gemaakt, klaar om te senden";
 
-        $response = curl_exec($ch);
-        print_r($response);
-
-        return $response;
+         $input = json_encode($json);
+         echo "test1";
+         $connection = new AMQPStreamConnection('10.3.51.32', 5672, 'cloud', 'Student1');
+        echo "test2";
+        $channel = $connection->channel();
+        echo "test3";
+        $channel->queue_declare('FrontendQueue', false, true, false, false);
+         $msg = new AMQPMessage($input);
+         $channel->basic_publish($msg, '', 'FrontendQueue');
+         echo " [x] Sent \n";
+         $channel->close();
+         $connection->close();
     }
 
-}
+?>
+
+
+<a href="Main.php" class="btn btn-default">Terug naar main</a>
+
+
+<?php
+        function getUuid($uniqString, $kind)
+        {
+echo "start func";
+            $url = '10.3.51.41/api/v1/uuid';
+
+            $params = array(
+                'login' => "cloud",
+                'password' => md5("R7YWjP"),
+                'uniq' => $uniqString,
+                'kind' => $kind
+            );
+
+            $json = json_encode($params);
+            echo "Meegegeven json:";
+            print_r($json);
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Content-Length: ' . strlen($json)));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
+
+            $response = curl_exec($ch);
+
+            echo "Response json:";
+            echo $response;
+            // print_r($response);
+
+            // var_dump($response)
+
+            // var_dump($response);
+
+            //$json = json_decode($response);
+//echo "var dump: ";
+            // var_dump($json);
+            ?>
+            <br>
+            <?php
+            // $statusCode = $json['StatusCode'];
+
+            return $response;
+        }
+
 ?>
 </body>
 </html>

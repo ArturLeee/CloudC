@@ -32,7 +32,6 @@ $conn = mysqli_connect("localhost","root", "lalolu4", "owncloud");
 $sql = "SELECT uid FROM oc_group_user WHERE gid = 'gastspreker'";
 $result = $conn->query($sql);
 
-
 /*$stmt = $conn->prepare("SELECT uid FROM oc_group_user WHERE gid = gastspreker");
 $stmt->execute();
 $stmt->bind_result($uid);
@@ -42,14 +41,15 @@ while($row=$stmt->fetch()){
 }
 
 */
+
+
 ?>
 <div class="container">
     <h1>Event aanmaken</h1>
     <form method="post" action="eventVerwerking.php">
         <div class="form-group">
             <label for="naam">Naam</label>
-            <input type="text" name="naam" class="form-control"value="<?php echo $values["voornaam"]; ?>" >
-            <div><?php echo $errors["voornaam"]; ?></div>
+            <input type="text" name="naam" class="form-control" required>
         </div>
         <div class="form-group">
             <label>Kies gastspreker</label>
@@ -73,23 +73,23 @@ while($row=$stmt->fetch()){
         </div>
         <div class="form-group">
             <label>Beschrijving</label>
-            <textarea name="beschrijving" title="bericht" class="form-control" id="description"  rows="2" style="resize:vertical; max-height:400px;"></textarea>
+            <textarea name="beschrijving" title="bericht" class="form-control" id="description"  rows="2" style="resize:vertical; max-height:400px;" required></textarea>
         </div>
         <div class="form-group">
             <label>Dag</label>
-            <input type="date" name="dag" class="form-control"">
+            <input type="date" name="dag" class="form-control" required>
         </div>
         <div class="form-group">
             <label>Start</label>
-            <input type="time" name="start" class="form-control">
+            <input type="time" name="start" class="form-control" required>
         </div>
         <div class="form-group">
             <label>Einde</label>
-            <input type="time" name="einde" class="form-control">
+            <input type="time" name="einde" class="form-control" required>
         </div>
         <div class="form-group">
             <label>Locatie</label>
-            <input type="text" name="locatie" class="form-control">
+            <input type="text" name="locatie" class="form-control" required>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
         <a href="Main.php" class="btn btn-default">Terug</a>
