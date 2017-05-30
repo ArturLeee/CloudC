@@ -98,18 +98,17 @@ while($row=$stmt->fetch()){
 $conn->close();
 ?>
 
-    <hr>
-
+    <br>
+    <br>
     <!-- Footer -->
+    <hr>
     <footer>
         <div class="row">
             <div class="col-lg-12">
-                <p>Copyright &copy;</p>
+                <p>Groep C - Cloud en Planning</p>
             </div>
         </div>
     </footer>
-
-</div>
 <!-- /.container -->
 
 <!-- jQuery -->

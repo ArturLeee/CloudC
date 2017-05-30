@@ -1,5 +1,8 @@
 <?php
 
+// test bestand, wordt niet gebruikt
+
+
 $id = "3333544457";
 $username = "Karel";
 $group = "gastspreker";

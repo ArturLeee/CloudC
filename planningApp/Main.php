@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Main</title>
+    <title>Events en shifts toevoegen</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -21,17 +21,16 @@
 
     <!--bron code in body: http://bootsnipp.com/snippets/featured/list-grid-view -->
     <style>
+
         a:link, a:visited {
-            background-color: cadetblue;
             color: black;
-            padding: 40px 50px;
+            padding: 40px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size: 16px;
+            font-size: 25px;
+            width: 400px;
         }
-
-
         a:hover, a:active {
             background-color: lightblue;
         }
@@ -44,15 +43,18 @@
 <br>
 <div class="container">
 <h1>Event of shift aanmaken</h1>
-    <a href="formEvent.php">Event</a>
-    <a href="formShift.php">Shift</a>
-    <hr>
+    <br>
+    <a href="formEvent.php" class="glyphicon glyphicon-pencil"> Event</a>
+    <a href="formShift.php" class="glyphicon glyphicon-pencil"> Shift</a>
 
+    <br>
+    <br>
     <!-- Footer -->
+    <hr>
     <footer>
         <div class="row">
             <div class="col-lg-12">
-                <p>Copyright &copy;</p>
+                <p>Groep C - Cloud en Planning</p>
             </div>
         </div>
     </footer>

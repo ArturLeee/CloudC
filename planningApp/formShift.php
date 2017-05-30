@@ -74,12 +74,15 @@ $result = $conn->query($sql);
         <button type="submit" value="Send" class="btn btn-success">Submit</button>
         <a href="Main.php" class="btn btn-default">Terug</a>
     </form>
-    <hr>
+
+    <br>
+    <br>
     <!-- Footer -->
+    <hr>
     <footer>
         <div class="row">
             <div class="col-lg-12">
-                <p>Copyright &copy;</p>
+                <p>Groep C - Cloud en Planning</p>
             </div>
         </div>
     </footer>

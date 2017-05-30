@@ -21,7 +21,6 @@ $callback = function($msg) {
     if($Type != "HBT") {
         $method = $json['Method'];
         $objectType = $json['ObjectType'];
-
         // $sender = $json['Sender'];
         // $receiver = $json['Receiver'];
         $body = $json['Body'];
@@ -91,14 +90,22 @@ $callback = function($msg) {
             case 'PUT':
                 switch ($objectType) {
                     case 'SPK':
+                        $group = "gastspreker";
+                        Users::UpdateUsers($id, $username, $email, $group);
+                        echo " [x] Received ";
                         break;
                     case 'COL':
-
+                        $group = "collaborator";
+                        Users::UpdateUsers($id, $username, $email, $group);
+                        echo " [x] Received ";
                         break;
-                    case 'user':
-
+                    case 'SPO':
+                        $group = "sponsor";
+                        Users::UpdateUsers($id, $company, $email, $group);
+                        echo " [x] Received ";
                         break;
                     default:
+                        break;
                 }
                 break;
             default:

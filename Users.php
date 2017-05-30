@@ -80,5 +80,37 @@ class Users
             }
             */
     }
+
+    public static function UpdateUsers($id, $username, $email, $group)
+    {
+        $conn = mysqli_connect("localhost", "root", "lalolu4", "owncloud");
+
+        $sql = "DELETE FROM oc_users WHERE uid='$id'";
+        if ($conn->query($sql) === TRUE) {
+            echo "user deleted in oc_users";
+        } else {
+            echo "Error deleting user in oc_user: " . $conn->error;
+        }
+
+        $sql = "DELETE FROM oc_preferences WHERE userid='$id'";
+        if ($conn->query($sql) === TRUE) {
+            echo "user deleted in oc_preferences";
+        } else {
+            echo "Error deleting user in oc_preferences: " . $conn->error;
+        }
+
+        $sql = "DELETE FROM oc_group_user WHERE uid='$id'";
+        if ($conn->query($sql) === TRUE) {
+            echo "user deleted in oc_group_user";
+        } else {
+            echo "Error deleting user in oc_group_user: " . $conn->error;
+        }
+
+        echo "create user: ";
+        self::createUsers($id, $username, $email, $group);
+
+    }
+
+
 }
 ?>

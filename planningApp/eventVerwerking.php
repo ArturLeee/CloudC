@@ -22,48 +22,6 @@ require_once '../vendor/autoload.php';
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 
-//phpinfo();
-
-/*
-$check =true;
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST["naam"])) {
-        $check = false;
-    } else {
-        $naam = $_POST['naam'];
-    }
-    if (empty($_POST["beschrijving"])) {
-        $check = false;
-    } else {
-        $beschrijving = $_POST['beschrijving'];
-    }
-    if (empty($_POST["dag"])) {
-        $check = false;
-    } else {
-        $dag = $_POST['dag'];
-    }
-    if (empty($_POST["start"])) {
-        $check = false;
-    } else {
-        $start =$_POST['start'];
-    }
-    if (empty($_POST["einde"])) {
-        $check = false;
-    } else {
-        $einde = $_POST['einde'];
-    }
-    if (empty($_POST["locatie"])) {
-        $check = false;
-    }else{
-        $locatie = $_POST['locatie'];
-    }
-}
-
-if($check == false){
-    header("location:formEvent.php");
-}
-*/
     $naam = $_POST['naam'];
     $beschrijving = $_POST['beschrijving'];
     $dag = $_POST['dag'];
