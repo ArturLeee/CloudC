@@ -12,18 +12,20 @@ $callback = function($msg) {
     echo " [x] Received ", $msg->body, "\n";
     var_dump($msg->body);
 
-
     $json = json_decode($msg->body, true);
 
    //$credentials = $json['Credentials'];
    // $login = $credentials['login'];
    // $password = $credentials['password'];
-    $method = $json['Method'];
-  // $sender = $json['Sender'];
-   // $receiver = $json['Receiver'];
-    $objectType = $json['ObjectType'];
-    $body = $json['Body'];
-    echo $objectType;
+    $Type = $json['Type'];
+    if($Type != "HBT") {
+        $method = $json['Method'];
+        $objectType = $json['ObjectType'];
+
+        // $sender = $json['Sender'];
+        // $receiver = $json['Receiver'];
+        $body = $json['Body'];
+        echo $objectType;
 
         foreach ($body as $name => $value) {
             switch ($name) {
@@ -36,77 +38,96 @@ $callback = function($msg) {
                 case 'email':
                     $email = $value;
                     break;
+                case 'company_name':
+                    $company = $value;
+                    break;
             }
         }
 
-            if (!isset($id)) {
-                echo "geen id";
-            }
-            if (!isset($username)) {
-                $username = null;
-            }
-            if (!isset($email)) {
-                $email = null;
-            }
+        if (!isset($id)) {
+            echo "geen id";
+        }
+        if (!isset($username)) {
+            $username = null;
+        }
+        if (!isset($email)) {
+            $email = null;
+        }
 
-            switch ($method) {
-                case 'POST':
-                    switch ($objectType) {
-                        case 'SPK':
-                            $group = "gastspreker";
-                            Users::createUsers($id, $username, $email, $group);
-                            echo " [x] Received ";
-                            break;
-                        case 'COL':
-                            $group = "collaborator";
-                            Users::createUsers($id, $username, $email, $group);
-                            echo " [x] Received ";
-                            break;
-                        case 'SPO':
-                            $group = "sponsor";
-                            Users::createUsers($id, $username, $email, $group);
-                            echo " [x] Received ";
-                            break;
-                        default:
-                            break;
-                    }
+        switch ($method) {
+            case 'POST':
+                switch ($objectType) {
+                    case 'SPK':
+                        $group = "gastspreker";
+                        Users::createUsers($id, $username, $email, $group);
+                        echo " [x] Received ";
+                        break;
+                    case 'COL':
+                        $group = "collaborator";
+                        Users::createUsers($id, $username, $email, $group);
+                        echo " [x] Received ";
+                        break;
+                    case 'SPO':
+                        $group = "sponsor";
+                        Users::createUsers($id, $company, $email, $group);
+                        echo " [x] Received ";
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case 'GET':
+                switch ($objectType) {
+                    case 'user':
+                        break;
+                    case 'gastspreker':
+                        break;
+                    case 'admin':
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case 'PUT':
+                switch ($objectType) {
+                    case 'SPK':
+                        break;
+                    case 'COL':
+
+                        break;
+                    case 'user':
+
+                        break;
+                    default:
+                }
+                break;
+            default:
+                break;
+        }
+
+    }else{
+        $body = $json['Body'];
+
+        foreach ($body as $name => $value) {
+            switch ($name) {
+                case 'uuid':
+                    $id = $value;
                     break;
-                case 'GET':
-                    switch ($objectType) {
-                        case 'user':
-                            break;
-                        case 'gastspreker':
-                            break;
-                        case 'admin':
-                            break;
-                        default:
-                            break;
-                    }
+                case 'version':
+                    $version = $value;
                     break;
-                case 'PUT':
-                    switch ($objectType) {
-                        case 'SPK':
-                            break;
-                        case 'COL':
-
-                            break;
-                        case 'user':
-
-                            break;
-                        default:
-                    }
+                case 'var':
+                    $var = $value;
                     break;
-                default:
+                case 'timestampsnd':
+                    $timestampsnd = $value;
                     break;
             }
+        }
 
-    if($objectType == "HBT") {
-        $UUID = $json["UUID"];
-        $version = $json["version"];
-        $var = $json["var"];
-        $timestampsnd = $json["timestampsnd"];
+        SSC::send($id, $timestampsnd, $var, $version);
 
-        SSC::send($UUID, $timestampsnd, $var, $version);
+
     }
 
 };

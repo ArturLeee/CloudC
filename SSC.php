@@ -25,16 +25,15 @@ class SSC
         $var = $var * $var;
 
         $jsonHbt= array(
-            'Type' => 'Answer',
-            'ObjectType' => 'HBT',
+            'Type' => 'HBT',
             'Body' => array (
-                'UUID' => $UUID,
+                'uuid' => $UUID,
                 'timestampsnd' => $timestampsnd,
-                'timestampres' => $timestampres,
+                'timestampres' => intval($timestampres),
                 'var' => $var,
                 'version' => $version
             ));
-
+        var_dump($jsonHbt);
         echo "json gemaakt, klaar om te senden";
 
         $input = json_encode($jsonHbt);
@@ -43,11 +42,11 @@ class SSC
         echo "test2";
         $channel = $connection->channel();
         echo "test3";
-        $channel->queue_declare('MonitoringLogQueue', false, true, false, false);
+        $channel->queue_declare('HeartBeatQueue', false, true, false, false);
         echo "test4";
         $msg = new AMQPMessage($input);
         echo "test5";
-        $channel->basic_publish($msg, '', 'MonitoringLogQueue');
+        $channel->basic_publish($msg, '', 'HeartBeatQueue');
         echo " [x] Sent \n";
         $channel->close();
         $connection->close();
