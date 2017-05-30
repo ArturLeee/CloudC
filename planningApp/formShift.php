@@ -41,7 +41,7 @@ $result = $conn->query($sql);
             ?>
             <div class="form-group">
                 <label>Kies medewerker</label>
-                <select name="collaborator">
+                <select name="collaborator" class="form-control">
                     <?php
                     while ($row = $result->fetch_assoc()) {
                         echo '<option value="' . $row["uid"] . '">' . $row["displayname"] . '</option>';
@@ -71,7 +71,7 @@ $result = $conn->query($sql);
             <label>Locatie</label>
             <input type="text" name="locatie" class="form-control" id="locatie">
         </div>
-        <button type="submit" value="Send" class="btn btn-default">Submit</button>
+        <button type="submit" value="Send" class="btn btn-success">Submit</button>
         <a href="Main.php" class="btn btn-default">Terug</a>
     </form>
     <hr>

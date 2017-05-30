@@ -3,6 +3,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 
 include_once 'Users.php';
+include_once 'SSC.php';
 $connection = new AMQPStreamConnection('10.3.51.32', 5672, 'cloud', 'Student1');
 $channel = $connection->channel();
 echo ' [*] Waiting for messages. To exit press CTRL+C', "\n";
@@ -11,15 +12,15 @@ $callback = function($msg) {
     echo " [x] Received ", $msg->body, "\n";
     var_dump($msg->body);
 
-    
+
     $json = json_decode($msg->body, true);
 
-    $credentials = $json['Credentials'];
-    $login = $credentials['login'];
-    $password = $credentials['password'];
+   //$credentials = $json['Credentials'];
+   // $login = $credentials['login'];
+   // $password = $credentials['password'];
     $method = $json['Method'];
-    $sender = $json['Sender'];
-    $receiver = $json['Receiver'];
+  // $sender = $json['Sender'];
+   // $receiver = $json['Receiver'];
     $objectType = $json['ObjectType'];
     $body = $json['Body'];
     echo $objectType;
@@ -98,8 +99,17 @@ $callback = function($msg) {
                 default:
                     break;
             }
-};
 
+    if($objectType == "HBT") {
+        $UUID = $json["UUID"];
+        $version = $json["version"];
+        $var = $json["var"];
+        $timestampsnd = $json["timestampsnd"];
+
+        SSC::send($UUID, $timestampsnd, $var, $version);
+    }
+
+};
 
 $channel->basic_consume('PlanningQueue', '', false, true, false, false, $callback);
 while(count($channel->callbacks)) {

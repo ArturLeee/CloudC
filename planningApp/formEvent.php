@@ -55,7 +55,7 @@ while($row=$stmt->fetch()){
         </div>
         <div class="form-group">
             <label>Kies gastspreker</label>
-            <select title="gastspreker" name="gastspreker">
+            <select title="gastspreker" name="gastspreker" class="form-control">
                 <option value="geen" >Geen gastspreker event</option>
             <?php
             if ($result->num_rows > 0) {
@@ -90,7 +90,7 @@ while($row=$stmt->fetch()){
             <label>Locatie</label>
             <input type="text" name="locatie" class="form-control" required>
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-success">Submit</button>
         <a href="Main.php" class="btn btn-default">Terug</a>
     </form>
 
