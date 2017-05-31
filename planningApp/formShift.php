@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>PhotoStuff</title>
+    <title>Shift</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,9 +26,8 @@
 <body>
 
 <?php
-
 $conn = mysqli_connect("localhost","root", "lalolu4", "owncloud");
-$sql = "SELECT uid FROM oc_group_user WHERE gid = 'collaborator'";
+$sql = "SELECT u.uid, u.displayname FROM oc_group_user gu JOIN oc_users u ON u.uid = gu.uid and gu.gid = 'collaborator'";
 $result = $conn->query($sql);
 
 ?>
@@ -42,12 +41,11 @@ $result = $conn->query($sql);
             ?>
             <div class="form-group">
                 <label>Kies medewerker</label>
-                <select name="collaborator">
+                <select name="collaborator" class="form-control">
                     <?php
                     while ($row = $result->fetch_assoc()) {
-                        echo '<option value="' . $row["uid"] . '">' . $row["uid"] . '</option>';
+                        echo '<option value="' . $row["uid"] . '">' . $row["displayname"] . '</option>';
                     }
-
                     ?>
                 </select>
             </div>
@@ -73,15 +71,18 @@ $result = $conn->query($sql);
             <label>Locatie</label>
             <input type="text" name="locatie" class="form-control" id="locatie">
         </div>
-        <button type="submit" value="Send" class="btn btn-default">Submit</button>
+        <button type="submit" value="Send" class="btn btn-success">Submit</button>
         <a href="Main.php" class="btn btn-default">Terug</a>
     </form>
-    <hr>
+
+    <br>
+    <br>
     <!-- Footer -->
+    <hr>
     <footer>
         <div class="row">
             <div class="col-lg-12">
-                <p>Copyright &copy;</p>
+                <p>Groep C - Cloud en Planning</p>
             </div>
         </div>
     </footer>

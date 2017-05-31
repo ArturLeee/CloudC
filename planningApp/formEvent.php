@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>PhotoStuff</title>
+    <title>Event</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -29,8 +29,9 @@
 
 <?php
 $conn = mysqli_connect("localhost","root", "lalolu4", "owncloud");
-$sql = "SELECT uid FROM oc_group_user WHERE gid = 'gastspreker'";
+$sql = "SELECT u.uid, u.displayname FROM oc_group_user gu JOIN oc_users u ON u.uid = gu.uid and gu.gid = 'gastspreker'";
 $result = $conn->query($sql);
+
 
 
 /*$stmt = $conn->prepare("SELECT uid FROM oc_group_user WHERE gid = gastspreker");
@@ -42,25 +43,24 @@ while($row=$stmt->fetch()){
 }
 
 */
+
+
 ?>
 <div class="container">
     <h1>Event aanmaken</h1>
     <form method="post" action="eventVerwerking.php">
         <div class="form-group">
             <label for="naam">Naam</label>
-            <input type="text" name="naam" class="form-control">
+            <input type="text" name="naam" class="form-control" required>
         </div>
         <div class="form-group">
             <label>Kies gastspreker</label>
-            <select name="gastspreker">
+            <select title="gastspreker" name="gastspreker" class="form-control">
                 <option value="geen" >Geen gastspreker event</option>
             <?php
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                  //  $huidige = $row["uid"];
-                  //  $sql2 = "SELECT displayname FROM oc_users WHERE uid = '$huidige'";
-                   // $resultName = $conn->query($sql2);
-                    echo '<option value="'.$row["uid"].'">'.$row["uid"].'</option>';
+                    echo '<option value="'.$row["uid"].'">'.$row["displayname"].'</option>';
                 }
             }
             /*
@@ -72,25 +72,25 @@ while($row=$stmt->fetch()){
         </div>
         <div class="form-group">
             <label>Beschrijving</label>
-            <textarea name="beschrijving" title="bericht" class="form-control" id="description"  rows="2" style="resize:vertical; max-height:400px;"></textarea>
+            <textarea name="beschrijving" title="bericht" class="form-control" id="description"  rows="2" style="resize:vertical; max-height:400px;" required></textarea>
         </div>
         <div class="form-group">
             <label>Dag</label>
-            <input type="date" name="dag" class="form-control"">
+            <input type="date" name="dag" class="form-control" required>
         </div>
         <div class="form-group">
             <label>Start</label>
-            <input type="time" name="start" class="form-control">
+            <input type="time" name="start" class="form-control" required>
         </div>
         <div class="form-group">
             <label>Einde</label>
-            <input type="time" name="einde" class="form-control">
+            <input type="time" name="einde" class="form-control" required>
         </div>
         <div class="form-group">
             <label>Locatie</label>
-            <input type="text" name="locatie" class="form-control">
+            <input type="text" name="locatie" class="form-control" required>
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-success">Submit</button>
         <a href="Main.php" class="btn btn-default">Terug</a>
     </form>
 
@@ -98,18 +98,17 @@ while($row=$stmt->fetch()){
 $conn->close();
 ?>
 
-    <hr>
-
+    <br>
+    <br>
     <!-- Footer -->
+    <hr>
     <footer>
         <div class="row">
             <div class="col-lg-12">
-                <p>Copyright &copy;</p>
+                <p>Groep C - Cloud en Planning</p>
             </div>
         </div>
     </footer>
-
-</div>
 <!-- /.container -->
 
 <!-- jQuery -->

@@ -3,10 +3,13 @@
 require_once __DIR__ . '/vendor/autoload.php';
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
-// COL = medewerker SPK=speaker
+
+// Deze sender wordt enkel gebruikt om te testen
+
+//update request
 $json = array(
     'Type' => 'Request',
-    'Method' => 'POST',
+    'Method' => 'PUT',
     'Sender' => 'CLP',
     'Receiver' => 'CLP',
     'ObjectType' => 'SPK',
@@ -15,15 +18,14 @@ $json = array(
     'password' => 'Student1'
     ),
     'Body' => array (
-        'uuid' => '6d9fa04f-2148-c1c4-fb78-590f3af9e935',
-        'name' => 'remco',
-        'email' => 'ee@gmail.com',
+        'uuid' => 'b887854e-CRM-COL-b6be-5321-9da8-a05b2e1fc658',
+        'name' => 'Pieterupdate',
+        'email' => 'eepieter@gmail.com',
        )
 );
 
 //JJJJDDMMTHHMMSSZ
 
-$start = "20170522T180000Z";
 
 /*
 $end = "20170522T220000Z";
