@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/vendor/autoload.php';
-require_once 'simpleCalDAV/SimpleCalDAVClient.php';
+require_once '../simpleCalDAV/SimpleCalDAVClient.php';
 
 /*
  * Created by PhpStorm.
@@ -13,7 +13,7 @@ require_once 'simpleCalDAV/SimpleCalDAVClient.php';
 class Calendar
 {
 //function to create agendaItem
-    function createEvent($Description,$Summary,$START,$END,$Loc)
+    public static function createEvent($uuid, $naam, $Description ,$START,$END,$Loc)
     {
         $firstNewEvent = 'BEGIN:VCALENDAR
 PRODID:-//SomeExampleStuff//EN
@@ -40,8 +40,8 @@ BEGIN:VEVENT
 CREATED:20140403T091024Z
 LAST-MODIFIED:20140403T091044Z
 DTSTAMP:20140416T091044Z
-UID:' . $Summary . '
-SUMMARY:' . $Summary . '
+UID:' . $uuid . '
+SUMMARY:' . $naam . '
 DTSTART;TZID=Europe/Berlin:' . $START . '
 DTEND;TZID=Europe/Berlin:' . $END . '
 LOCATION:' . $Loc . '

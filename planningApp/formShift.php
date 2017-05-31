@@ -34,7 +34,7 @@ $result = $conn->query($sql);
 
 <br>
 <br>
-<div class="container">
+<div class="container" style="max-width:750px;">
     <h1>Shift aanmaken</h1>
     <form method="post" name="formShift" action="shiftVerwerking.php">
         <?php  if ($result->num_rows > 0) {

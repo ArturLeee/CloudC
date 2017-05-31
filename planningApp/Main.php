@@ -29,7 +29,7 @@
             text-decoration: none;
             display: inline-block;
             font-size: 25px;
-            width: 400px;
+            width: 250px;
         }
         a:hover, a:active {
             background-color: lightblue;
@@ -39,13 +39,15 @@
 </head>
 
 <body>
+
 <br>
 <br>
-<div class="container">
-<h1>Event of shift aanmaken</h1>
+<div class="container" style="max-width:800px;">
+<h1 style="font-family: 'Arial'">Creatie events en shifts</h1>
     <br>
-    <a href="formEvent.php" class="glyphicon glyphicon-pencil"> Event</a>
-    <a href="formShift.php" class="glyphicon glyphicon-pencil"> Shift</a>
+    <a href="formEvent.php" class="glyphicon glyphicon-pencil" style="font-family: 'Arial Black'"> Event</a>
+    <a href="formShift.php" class="glyphicon glyphicon-pencil" style="font-family: 'Arial Black'"> Shift</a>
+    <a href="login.php">Log uit</a>
 
     <br>
     <br>

@@ -33,7 +33,6 @@ $sql = "SELECT u.uid, u.displayname FROM oc_group_user gu JOIN oc_users u ON u.u
 $result = $conn->query($sql);
 
 
-
 /*$stmt = $conn->prepare("SELECT uid FROM oc_group_user WHERE gid = gastspreker");
 $stmt->execute();
 $stmt->bind_result($uid);
@@ -46,7 +45,7 @@ while($row=$stmt->fetch()){
 
 
 ?>
-<div class="container">
+<div class="container" style="max-width:750px;">
     <h1>Event aanmaken</h1>
     <form method="post" action="eventVerwerking.php">
         <div class="form-group">
@@ -109,6 +108,7 @@ $conn->close();
             </div>
         </div>
     </footer>
+</div>
 <!-- /.container -->
 
 <!-- jQuery -->

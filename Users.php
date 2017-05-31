@@ -55,30 +55,6 @@ class Users
         echo "Response group from curl :" . $response;
         echo "<br/>Added group to the new user in owncloud<br/>";
 
-        /*
-                public static function changeGroup($login, $password, $username, $group)
-                {
-                    $ownAdminname = $login;
-                    $ownAdminpassword = $password;
-                    $url = 'http://' . $ownAdminname . ':' . $ownAdminpassword . '@10.3.51.24/owncloud/ocs/v1.php/cloud/users';
-                    echo "Created URL is " . $url . "<br/>";
-
-                    //add group to user
-                    //POST http://admin:secret@example.com/ocs/v1.php/cloud/users/Frank/groups -d groupid="newgroup"
-                    $urlGroup = 'http://' . $ownAdminname . ':' . $ownAdminpassword . '@10.3.51.24/owncloud/ocs/v1.php/cloud/users/' . $username . '/groups';
-                    $groupArray = array('groupid' => $group);
-                    $ch = curl_init($urlGroup);
-                    curl_setopt($ch, CURLOPT_POST, 1);
-                    curl_setopt($ch, CURLOPT_POSTFIELDS, $groupArray);
-                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                    $response = curl_exec($ch);
-                    curl_close($ch);
-                    echo "Response group from curl :" . $response;
-                    echo "<br/>Added group to the new user in owncloud<br/>";
-                }
-
-            }
-            */
     }
 
     public static function UpdateUsers($id, $username, $email, $group)
@@ -110,7 +86,5 @@ class Users
         self::createUsers($id, $username, $email, $group);
 
     }
-
-
 }
 ?>

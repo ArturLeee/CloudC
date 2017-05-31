@@ -34,6 +34,9 @@ $callback = function($msg) {
                 case 'name':
                     $username = $value;
                     break;
+                case 'surname':
+                    $surname = $value;
+                    break;
                 case 'email':
                     $email = $value;
                     break;
@@ -49,10 +52,17 @@ $callback = function($msg) {
         if (!isset($username)) {
             $username = null;
         }
+        if (!isset($surname)) {
+            $surname = null;
+        }
         if (!isset($email)) {
             $email = null;
         }
+        if (!isset($company)) {
+            $company = null;
+        }
 
+        $username = $username . " " . $surname;
         switch ($method) {
             case 'POST':
                 switch ($objectType) {

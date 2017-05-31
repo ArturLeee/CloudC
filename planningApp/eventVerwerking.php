@@ -21,6 +21,7 @@ error_reporting(E_ALL);
 require_once '../vendor/autoload.php';
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
+include_once "Calendar.php";
 
     $naam = $_POST['naam'];
     $beschrijving = $_POST['beschrijving'];
@@ -52,6 +53,8 @@ var_dump($json);
     $statusCode = $json["StatusCode"];
     $uuid = $json['StatusMessage']["UUID"];
     $version = $json['StatusMessage']["Version"];
+
+    Calendar::createEvent($uuid, $naam ,$beschrijving,$start,$einde,$locatie);
 
     echo "statuscode";
     echo $statusCode;
@@ -90,6 +93,7 @@ var_dump($json);
         );
 
         echo "json gemaakt, klaar om te senden";
+        var_dump($json);
 
          $input = json_encode($json);
          echo "test1";
