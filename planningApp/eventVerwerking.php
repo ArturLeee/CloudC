@@ -21,7 +21,7 @@ error_reporting(E_ALL);
 require_once '../vendor/autoload.php';
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
-include_once "Calendar.php";
+include "Calendar.php";
 
     $naam = $_POST['naam'];
     $beschrijving = $_POST['beschrijving'];
@@ -54,14 +54,17 @@ var_dump($json);
     $uuid = $json['StatusMessage']["UUID"];
     $version = $json['StatusMessage']["Version"];
 
-    Calendar::createEvent($uuid, $naam ,$beschrijving,$start,$einde,$locatie);
 
-    echo "statuscode";
-    echo $statusCode;
-    echo "uuid";
-    echo $uuid;
-    echo "version";
-    echo  $version;
+$startOwn = $dag."T".$start."00Z";
+$startOwn = str_replace('-', '', $startOwn);
+$startOwn = str_replace(':', '', $startOwn);
+
+$eindeOwn = $dag."T".$einde."00Z";
+$eindeOwn = str_replace('-', '', $eindeOwn);
+$eindeOwn = str_replace(':', '', $eindeOwn);
+
+    // deze functie was al gemaakt, maar deze link ontbrak
+    Calendar::createEventShift($uuid, $naam ,$beschrijving,$startOwn,$eindeOwn,$locatie);
 
     if ($statusCode != 200) {
         echo "Fout, statuscode: " . $statusCode;
@@ -96,19 +99,14 @@ var_dump($json);
         var_dump($json);
 
          $input = json_encode($json);
-         echo "test1";
          $connection = new AMQPStreamConnection('10.3.51.32', 5672, 'cloud', 'Student1');
-         echo "test2";
          $channel = $connection->channel();
-         echo "test3";
          $channel->queue_declare('FrontendQueue', false, true, false, false);
         $channel->queue_declare('MonitoringLogQueue', false, true, false, false);
-        echo "test4";
          $msg = new AMQPMessage($input);
-         echo "test5";
          $channel->basic_publish($msg, '', 'FrontendQueue');
         $channel->basic_publish($msg, '', 'MonitoringLogQueue');
-        echo " [x] Sent \n";
+        echo " [x] Sent naar FRO en MON \n";
          $channel->close();
          $connection->close();
     }
